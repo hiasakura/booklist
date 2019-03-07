@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="title">おすすめ書籍・サイトの一覧</div>
+  <div class="product-list-container">
+    <div class="waiting-for-products" *ngIf="products === null; else productList">
+      書籍・サイト情報を取得しています...
+    </div>
+    <ng-template #productList>
+      <div class="product-list-table">
+        <div class="product-line header">
+          <div class="product-key">Key</div>
+          <div class="product-name">書籍名・サイト名</div>
+          <div class="product-price">価格</div>
+        </div>
+        <div class="product-line" *ngFor="let product of products" (mouseenter)="hovered(product)" (mouseleave)="unhovered(product)">
+          <div class="product-key">{{ product.key }} </div>
+          <div class="product-name">{{ product.name }}</div>
+          <div class="product-price">
+            <span *ngIf="!product.hovered; else Unhovered">{{ product.price }}</span>
+            <ng-template #Unhovered><span id="detail" class="button white" id="hogehoge" (click)="onDetailClicked(this)" [routerLink]="[product.key]">詳細</span></ng-template>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <button class="button black" routerLink="/products/new">追加する</button>
+      </div>
+    </ng-template>
+  </div>
+</div>

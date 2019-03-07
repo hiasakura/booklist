@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SpaDemo</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script id=dataElem>
+    var digitalData = {
+        pageInstanceID: document.URL,
+        page:{
+            pageInfo:{
+                pageID: '2745374',
+                pageName: document.title
+            },
+            attributes:{
+                project: "SPA Demo Project"
+            }
+        },
+        user : [ {
+          "profile" : [ {
+            "attributes" : {
+              "gender" : "male",
+              "age" : 35
+            }
+          } ]
+        }],
+        libraries : {
+          adobe : {
+            launch : {
+              state : 0, // 0 = not loaded , 1 = loaded
+              domain : "assets.adobedtm.com"
+            }
+          }
+        }
+     };
+    </script>
+  <script src="//assets.adobedtm.com/launch-EN3fa5727397ac4802b18cc2fa2758c6e0-development.min.js" async></script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
