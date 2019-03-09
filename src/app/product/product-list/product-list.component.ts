@@ -19,17 +19,20 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private firebaseService: FirebaseService, 
-  ) { }
+
+    ) { }
 
   ngOnInit() {
-    this.productService.list().subscribe((products: Product[]) => {
-      this.products = products.map((product: Product) => {
-        return {
-          ... product,
-          hovered: false,
-        };
+    setTimeout(() => {
+      this.productService.list().subscribe((products: Product[]) => {
+        this.products = products.map((product: Product) => {
+          return {
+            ... product,
+            hovered: false,
+          };
+        });
       });
-    });
+    }, (1800));
   }
 
   onDetailClicked(this){

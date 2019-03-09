@@ -14,7 +14,6 @@ export class FirebaseService {
   PASSWORD = '$Lemon01'
 
   constructor() {
-    console.log("FirebaseService initialization");
     const config = {
       apiKey: 'AIzaSyAIvHZtzbQH_nXUJ1boxbxL14IOPuRHo9c',
       authDomain: 'angular-guide-firebase.firebaseapp.com',
@@ -24,23 +23,25 @@ export class FirebaseService {
       messagingSenderId: '582123911754',
     };
     firebase.initializeApp(config);
-    console.log("0");
     this.signInOrCreateUser(this.EMAIL, this.PASSWORD);
   }
-
 
   signInOrCreateUser(email, password): void {
     firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential: UserCredential) => {
       console.log(userCredential.user.uid);
       firebase.auth().currentUser.getIdToken().then((token: string) => {
         console.log(token);
+        this.FBTOKEN = token;
+        this.FBUUID = userCredential.user.uid;
       });
     }).catch(() => {
       return firebase.auth().createUserWithEmailAndPassword(email, password).then((userCredential: UserCredential) => {
         firebase.auth().currentUser.getIdToken().then((token: string) => {
           console.log(token);
+          this.FBTOKEN = token;
+          this.FBUUID = userCredential.user.uid;
         });
       });
     });
-  }
+  } 
 }

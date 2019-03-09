@@ -8,7 +8,6 @@ import { FirebaseService } from './shared/services/firebase.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'テストタイトルです';
 
   constructor(
     private _router: Router
