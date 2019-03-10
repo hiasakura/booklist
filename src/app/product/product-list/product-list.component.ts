@@ -32,10 +32,11 @@ export class ProductListComponent implements OnInit {
           };
         });
       });
-    }, (1800));
+    }, (3000));
   }
 
   onDetailClicked(this){
+    console.log("Button Clicked : event-action-trigger");
     document.body.dispatchEvent(new CustomEvent('event-action-trigger'));
   }
 
