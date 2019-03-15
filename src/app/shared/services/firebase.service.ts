@@ -10,8 +10,8 @@ export class FirebaseService {
 
   public FBTOKEN = '';
   public FBUUID = '';
-  EMAIL = 'hiroastbeaf@gmail.com';
-  PASSWORD = '$Lemon01'
+  EMAIL = 'XXXXXXXXXXXXXXXXXXXXXXXXXXX@gmail.com';
+  PASSWORD = 'hogehogehogehoge'
 
   constructor() {
     const config = {
